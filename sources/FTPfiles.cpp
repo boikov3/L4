@@ -11,6 +11,7 @@ string getLatestDate(const string &date1, const string &date2) {
 
 void printFinFile(const path &p,
                   map<string, pair <unsigned int, string>>& accounts) {
+    if (p.stem().string().length() >=25){
     file file;
     file.name = p.stem().string();
     file.balance = file.name.substr(0, 8);
@@ -31,6 +32,7 @@ void printFinFile(const path &p,
                     getLatestDate(file.date, accounts[file.number].second);
         }
     }
+}
 }
 
 void printAccountsInfo(const path &path_to_dir,
