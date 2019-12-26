@@ -39,7 +39,8 @@ void printAccountsInfo(const path &path_to_dir,
                        map<string, pair <unsigned int, string>>& accounts) {
     for (const directory_entry& obj :
     recursive_directory_iterator(path_to_dir)) {
-        if (is_regular_file(obj.path())) {
+        if (is_regular_file(obj.path())
+            && (obj.path().stem().string().length() >=25)) {
             string name = obj.path().stem().string();
             string balance = name.substr(0, 8);
             string number = name.substr(8, 8);
